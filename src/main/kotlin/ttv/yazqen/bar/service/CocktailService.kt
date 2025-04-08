@@ -13,8 +13,8 @@ class CocktailService(
         return repository.findAll().map { it.toCocktailEntry() }
     }
 
-    fun searchCocktailsByName(name: String): List<Cocktail> {
-        return repository.findCocktailsByCocktailNameLike(name)
+    fun searchCocktailsByName(name: String): List<CocktailEntry> {
+        return repository.findCocktailsByCocktailNameLike(name).map { it.toCocktailEntry() }
     }
 
     fun getCocktailById(id: String): Cocktail {
@@ -23,8 +23,12 @@ class CocktailService(
         }
     }
 
-    fun getRandomCocktail(): Cocktail {
-        return repository.findAll().random()
+    fun getRandomCocktails(batchSize: Long): List<CocktailEntry> {
+        return repository.findAll().shuffled()
+            .stream()
+            .limit(batchSize)
+            .toList()
+            .map { it.toCocktailEntry() }
     }
 
     fun saveCocktail(cocktail: Cocktail): Cocktail {
