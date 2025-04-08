@@ -1,9 +1,11 @@
 services:
   mongodb:
+    hostname: mongodb
     image: 'mongo:latest'
-    environment:
-      - 'MONGO_INITDB_DATABASE=yazqens-bar'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
-      - '27017'
+      - '27071:27017'
+    volumes:
+      - mongodb_data_container:/yazqens-bar/db
+
+volumes:
+  mongodb_data_container:

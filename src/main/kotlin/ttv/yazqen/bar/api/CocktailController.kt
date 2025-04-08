@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ttv.yazqen.bar.model.Cocktail
+import ttv.yazqen.bar.model.dto.CocktailEntry
 import ttv.yazqen.bar.service.CocktailService
 
 @RestController
@@ -24,7 +25,7 @@ class CocktailController (
     }
 
     @GetMapping
-    fun getAllCocktails(): ResponseEntity<List<Cocktail>> {
+    fun getAllCocktails(): ResponseEntity<List<CocktailEntry>> {
         return ResponseEntity.ok(service.getAllCocktails())
     }
 }

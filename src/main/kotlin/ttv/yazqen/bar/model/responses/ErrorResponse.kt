@@ -1,4 +1,4 @@
-package ttv.yazqen.bar.model.dto
+package ttv.yazqen.bar.model.responses
 
 import org.springframework.http.HttpStatus
 

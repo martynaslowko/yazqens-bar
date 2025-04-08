@@ -3,13 +3,14 @@ package ttv.yazqen.bar.service
 import org.springframework.stereotype.Service
 import ttv.yazqen.bar.model.Cocktail
 import ttv.yazqen.bar.model.CocktailRepository
+import ttv.yazqen.bar.model.dto.CocktailEntry
 
 @Service
 class CocktailService(
     private val repository: CocktailRepository
 ) {
-    fun getAllCocktails(): List<Cocktail> {
-        return repository.findAll()
+    fun getAllCocktails(): List<CocktailEntry> {
+        return repository.findAll().map { it.toCocktailEntry() }
     }
 
     fun searchCocktailsByName(name: String): List<Cocktail> {
