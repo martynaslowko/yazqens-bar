@@ -10,13 +10,13 @@ import java.util.*
 @Document("cocktails")
 data class Cocktail(
     @Id
-    val id: String = UUID.randomUUID().toString(),
+    val id: UUID = UUID.randomUUID(),
     val imageSource: URI,
     val cocktailName: String,
     val ingredients: List<Ingredient>,
     val recipe: String,
     val glass: String
 ) {
-    fun toCocktailEntry() = CocktailEntry(id, cocktailName, imageSource)
+    fun toCocktailEntry() = CocktailEntry(id.toString(), cocktailName, imageSource)
 }
 

@@ -1,5 +1,7 @@
 package ttv.yazqen.bar.service
 
-class CocktailNotFoundException(id: String) : RuntimeException(
+import java.util.*
+
+class CocktailNotFoundException(id: UUID) : RuntimeException(
     "Cocktail (id: $id) not found."
 )

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service
 import ttv.yazqen.bar.model.Cocktail
 import ttv.yazqen.bar.model.CocktailRepository
 import ttv.yazqen.bar.model.dto.CocktailEntry
+import java.util.*
 
 @Service
 class CocktailService(
@@ -13,11 +14,11 @@ class CocktailService(
         return repository.findAll().map { it.toCocktailEntry() }
     }
 
-    fun searchCocktailsByName(name: String): List<CocktailEntry> {
-        return repository.findCocktailsByCocktailNameLike(name).map { it.toCocktailEntry() }
+    fun searchCocktailsByPhrase(phrase: String): List<CocktailEntry> {
+        return repository.findCocktailsByCocktailNameLike(phrase).map { it.toCocktailEntry() }
     }
 
-    fun getCocktailById(id: String): Cocktail {
+    fun getCocktailById(id: UUID): Cocktail {
         return repository.findById(id).orElseThrow {
             CocktailNotFoundException(id)
         }
@@ -33,13 +34,5 @@ class CocktailService(
 
     fun saveCocktail(cocktail: Cocktail): Cocktail {
         return repository.save(cocktail)
-    }
-
-    fun updateCocktail(cocktail: Cocktail): Cocktail {
-        return repository.save(cocktail)
-    }
-
-    fun deleteCocktailById(id: String) {
-        repository.deleteById(id)
     }
 }
