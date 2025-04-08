@@ -15,7 +15,7 @@ class CocktailController (
     private val service: CocktailService
 ) {
     @GetMapping("/{id}")
-    fun getCocktailById(@PathVariable id: Long): ResponseEntity<Cocktail> {
+    fun getCocktailById(@PathVariable id: String): ResponseEntity<Cocktail> {
         return ResponseEntity.ok(service.getCocktailById(id))
     }
 

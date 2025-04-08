@@ -1,9 +1,9 @@
 package ttv.yazqen.bar.model.ingredients
 
 data class Ingredient(
-    val ingredient: String,
+    val name: String,
     val type: IngredientType,
-    val amount: String?,
+    val amount: Double?,
     val unit: String?,
 )
 

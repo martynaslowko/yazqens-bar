@@ -5,11 +5,12 @@ import org.springframework.data.mongodb.core.mapping.Document
 import ttv.yazqen.bar.model.dto.CocktailEntry
 import ttv.yazqen.bar.model.ingredients.Ingredient
 import java.net.URI
+import java.util.*
 
 @Document("cocktails")
 data class Cocktail(
     @Id
-    val id: Long,
+    val id: String = UUID.randomUUID().toString(),
     val imageSource: URI,
     val cocktailName: String,
     val ingredients: List<Ingredient>,

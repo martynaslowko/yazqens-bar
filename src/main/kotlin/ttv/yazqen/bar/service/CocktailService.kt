@@ -17,7 +17,7 @@ class CocktailService(
         return repository.findCocktailsByCocktailNameLike(name)
     }
 
-    fun getCocktailById(id: Long): Cocktail {
+    fun getCocktailById(id: String): Cocktail {
         return repository.findById(id).orElseThrow {
             CocktailNotFoundException(id)
         }
@@ -35,7 +35,7 @@ class CocktailService(
         return repository.save(cocktail)
     }
 
-    fun deleteCocktailById(id: Long) {
+    fun deleteCocktailById(id: String) {
         repository.deleteById(id)
     }
 }
