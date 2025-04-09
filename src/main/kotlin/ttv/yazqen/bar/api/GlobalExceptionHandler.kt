@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import ttv.yazqen.bar.model.responses.ErrorResponse
 import ttv.yazqen.bar.service.CocktailNotFoundException
-import java.util.NoSuchElementException
 
 
 @ControllerAdvice
